@@ -1,0 +1,46 @@
+#include <cs50.h>
+#include <stdio.h>
+
+void print_grid(int size);
+
+int main(void)
+{
+    //enter height of grid
+    int n;
+    do
+    {
+        n = get_int("Height: ");
+    }
+    while(n<1||n>8);
+
+    //create grid
+    print_grid(n);
+}
+
+void print_grid(int height)
+{
+    for(int i=0; i<height; i++)
+    {
+        //print left blanks
+        for(int left_blanks=0; left_blanks<height-i-1; left_blanks++)
+        {
+            printf(" ");
+        }
+        //print left grid
+        for(int j=0; j<i+1; j++)
+        {
+            printf("#");
+        }
+        //print middle blanks
+        for(int middle_blanks=0; middle_blanks<2; middle_blanks++)
+        {
+            printf(" ");
+        }
+        //print right grid
+        for(int m=0; m<i+1; m++)
+        {
+            printf("#");
+        }
+        printf("\n");
+    }
+}
